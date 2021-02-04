@@ -2,10 +2,20 @@
 #define BALAO_H
 
 
-class balao
+class balaO
 {
+private:
+    int angulo;
+    int velocidad;
+    double tiempo;
 public:
-    balao();
+    balaO();
+    float getAngulo() const;
+    void setAngulo(float value);
+    float getVelocidad() const;
+    void setVelocidad(float value);
+    float getTiempo() const;
+    void setTiempo(float value);
 };
 
 #endif // BALAO_H

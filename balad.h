@@ -2,10 +2,20 @@
 #define BALAD_H
 
 
-class balad
+class balaD
 {
+private:
+    int angulo;
+    int velocidad;
+    double tiempo;
 public:
-    balad();
+    balaD();
+    float getAngulo() const;
+    void setAngulo(float value);
+    float getVelocidad() const;
+    void setVelocidad(float value);
+    float getTiempo() const;
+    void setTiempo(float value);
 };
 
 #endif // BALAD_H

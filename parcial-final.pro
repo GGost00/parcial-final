@@ -13,6 +13,8 @@ SOURCES += \
     balao.cpp \
     canond.cpp \
     conono.cpp \
+    disparo.cpp \
+    esfera.cpp \
     main.cpp \
     mainwindow.cpp
 
@@ -21,6 +23,8 @@ HEADERS += \
     balao.h \
     canond.h \
     conono.h \
+    disparo.h \
+    esfera.h \
     mainwindow.h
 
 FORMS += \

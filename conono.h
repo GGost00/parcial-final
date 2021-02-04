@@ -1,11 +1,23 @@
-#ifndef CONONO_H
-#define CONONO_H
+#ifndef CANONO_H
+#define CANONO_H
+#include<math.h>
+#include<iostream>
+using namespace std;
 
-
-class conono
+class canonO
 {
+private:
+    float d ;
+    float Ho ;
+    float Xo ;
+    float Yo ;
+    float d0 ;
 public:
-    conono();
+    canonO(float distancia,float alturaof);
+
+    float getYo() const;
+    float getD0() const;
+    float getXo() const;
 };
 
-#endif // CONONO_H
+#endif // CANONO_H
