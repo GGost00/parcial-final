@@ -1,12 +1,13 @@
 #include "disparo.h"
 
+
 disparo::disparo(float distancia,float Hoo,float Hod)
 {
      disparoO = new canonO(distancia,Hoo);
      disparoD = new canonD(distancia,Hod);
 }
 
-void disparo::DisparoOfensivo(canonO disparoO, canonD disparoD, int Voo, int cantidad)
+void disparo::DisparoOfensivo(int Voo, int cantidad)
 {
     int flag = 0;
     float x,y;
@@ -22,8 +23,8 @@ void disparo::DisparoOfensivo(canonO disparoO, canonD disparoD, int Voo, int can
             y = 0.0;
             for(t = 0; ; t++){
                 x = Vxo*t;
-                y = disparoO.getYo() + Vy0*t -(0.5*G*t*t);
-                if(sqrt(pow((disparoD.getXd() - x),2)+pow((disparoD.getYd() - y),2)) < disparoO.getD0()){
+                y = disparoO->getYo() + Vy0*t -(0.5*G*t*t);
+                if(sqrt(pow((disparoD->getXd() - x),2)+pow((disparoD->getYd() - y),2)) < disparoO->getD0()){
                     if(y<0) y = 0;
                     if(cantidad==1){
                         if (t>2){
@@ -38,6 +39,10 @@ void disparo::DisparoOfensivo(canonO disparoO, canonD disparoD, int Voo, int can
 
                     }else{
 //                    ImprimirResultados1(angle, V0o, x, y, t);
+//                        bala =new esfera(3,disparoO->getXo(),disparoO->getYo(),0,0);
+//                        scene()->addItem(bala);
+//                        bala->Actualizar(V0o,angle,disparoO->getYo(),t);
+
                     flag += 1;
                     V0o += 50;
                     break;
@@ -54,7 +59,7 @@ void disparo::DisparoOfensivo(canonO disparoO, canonD disparoD, int Voo, int can
     }
 }
 
-void disparo::DisparoDefensivo(canonO disparoO, canonD disparoD, int Voo, int cantidad)
+void disparo::DisparoDefensivo(int Voo, int cantidad)
 {
 
     int flag = 0;
@@ -71,14 +76,14 @@ void disparo::DisparoDefensivo(canonO disparoO, canonD disparoD, int Voo, int ca
             y = 0.0;
             for(t = 0; ; t++){
                 x = Vxo*t;
-                y = disparoD.getYd() + Vy0*t -(0.5*G*t*t);
-                if(sqrt(pow((disparoO.getXo() - x),2)+pow((disparoO.getYo() - y),2)) < disparoD.getD0()){
+                y = disparoD->getYd() + Vy0*t -(0.5*G*t*t);
+                if(sqrt(pow((disparoO->getXo() - x),2)+pow((disparoO->getYo() - y),2)) < disparoD->getD0()){
                     if(y<0) y = 0;
                     if(cantidad==1){
                         if (t>2){
-                            disparoD1.setAngulo(angle);
-                            disparoD1.setVelocidad(V0o);
-                            disparoD1.setTiempo(t);
+                            disparoD1->setAngulo(angle);
+                            disparoD1->setVelocidad(V0o);
+                            disparoD1->setTiempo(t);
                             flag += 1;
                             break;
                         }
@@ -100,10 +105,10 @@ void disparo::DisparoDefensivo(canonO disparoO, canonD disparoD, int Voo, int ca
     }
 }
 
-void disparo::DefensaDefensivo1(canonO disparoO, canonD disparoD, int cantidad)
+void disparo::DefensaDefensivo1(int cantidad)
 {
-    DisparoOfensivo(disparoO, disparoD, 1,1);
-    float tiempoRes =disparoO1.getTiempo()-2;
+    DisparoOfensivo(1,1);
+    float tiempoRes =disparoO1->getTiempo()-2;
     float xb,yb;
     int flag = 0;
     float x,y;
@@ -111,10 +116,10 @@ void disparo::DefensaDefensivo1(canonO disparoO, canonD disparoD, int cantidad)
     int vbd = 0;
     float t = tiempoRes/2;
     int anglbd = 0;
-    vxoo=disparoO1.getVelocidad()*cos((disparoO1.getAngulo())*pi/180);
-    vyoo=disparoO1.getVelocidad()*sin((disparoO1.getAngulo())*pi/180);
+    vxoo=disparoO1->getVelocidad()*cos((disparoO1->getAngulo())*pi/180);
+    vyoo=disparoO1->getVelocidad()*sin((disparoO1->getAngulo())*pi/180);
     xb=vxoo*(t +2);
-    yb=disparoO.getYo()+vyoo*(t +2)-((1/2)*G*(pow(t,2)));
+    yb=disparoO->getYo()+vyoo*(t +2)-((1/2)*G*(pow(t,2)));
 
 
 
@@ -127,16 +132,16 @@ void disparo::DefensaDefensivo1(canonO disparoO, canonD disparoD, int cantidad)
             y = 0.0;
 
             x = Vxo*(t +2);
-            y = disparoD.getYd() + Vy0*(t+2) -(0.5*G*(pow(t,2)));
-            if(sqrt(pow((xb - x),2)+pow((yb - y),2)) < disparoO.getD0()){
+            y = disparoD->getYd() + Vy0*(t+2) -(0.5*G*(pow(t,2)));
+            if(sqrt(pow((xb - x),2)+pow((yb - y),2)) < disparoO->getD0()){
                 if(y<0) y = 0;
                 if(cantidad==1){
                     if (t>3){
                         cout<<"disparo defensivo--------------"<<endl;
 //                        ImprimirResultados1(anglbd+90, vbd, x, y, t);
-                        disparoD1.setAngulo(anglbd);
-                        disparoD1.setVelocidad(vbd);
-                        disparoD1.setTiempo(t);
+                        disparoD1->setAngulo(anglbd);
+                        disparoD1->setVelocidad(vbd);
+                        disparoD1->setTiempo(t);
                         flag += 1;
                         break;
                     }
@@ -159,12 +164,12 @@ void disparo::DefensaDefensivo1(canonO disparoO, canonD disparoD, int cantidad)
     }
 }
 
-void disparo::ContraAtaqueOf(canonO disparoO, canonD disparoD, int cantidad)
+void disparo::ContraAtaqueOf( int cantidad)
 {
-    DefensaDefensivo1(disparoO, disparoD, 1);
+    DefensaDefensivo1(1);
 
 
-    float tiempoRes =disparoD1.getTiempo()-1;
+    float tiempoRes =disparoD1->getTiempo()-1;
     float xb,yb;
     int flag = 0;
     float x,y;
@@ -172,10 +177,10 @@ void disparo::ContraAtaqueOf(canonO disparoO, canonD disparoD, int cantidad)
     int vbd = 0;
     float t = tiempoRes/2;
     int anglbd = 0;
-    vxoo=disparoD1.getVelocidad()*cos((disparoD1.getAngulo()+90)*pi/180);
-    vyoo=disparoD1.getVelocidad()*sin((disparoD1.getAngulo()+90)*pi/180);
-    xb=disparoD.getD()+ vxoo*(t +1);
-    yb=disparoO.getYo()+vyoo*(t +1)-((1/2)*G*(pow(t,2)));
+    vxoo=disparoD1->getVelocidad()*cos((disparoD1->getAngulo()+90)*pi/180);
+    vyoo=disparoD1->getVelocidad()*sin((disparoD1->getAngulo()+90)*pi/180);
+    xb=disparoD->getD()+ vxoo*(t +1);
+    yb=disparoO->getYo()+vyoo*(t +1)-((1/2)*G*(pow(t,2)));
 
 
 
@@ -188,14 +193,14 @@ void disparo::ContraAtaqueOf(canonO disparoO, canonD disparoD, int cantidad)
             y = 0.0;
 
             x = Vxo*(t +1);
-            y = disparoO.getYo() + Vy0*(t+1) -(0.5*G*(pow(t,2)));
-            if(sqrt(pow((xb - x),2)+pow((yb - y),2)) < disparoD.getD()*0.005){
+            y = disparoO->getYo() + Vy0*(t+1) -(0.5*G*(pow(t,2)));
+            if(sqrt(pow((xb - x),2)+pow((yb - y),2)) < disparoD->getD()*0.005){
                 if(y<0) y = 0;
                 if(cantidad==1){
                     if (t>3){
-                        disparoD1.setAngulo(anglbd);
-                        disparoD1.setVelocidad(vbd);
-                        disparoD1.setTiempo(t);
+                        disparoD1->setAngulo(anglbd);
+                        disparoD1->setVelocidad(vbd);
+                        disparoD1->setTiempo(t);
                         flag += 1;
                         break;
                     }
@@ -216,4 +221,15 @@ void disparo::ContraAtaqueOf(canonO disparoO, canonD disparoD, int cantidad)
         }
         if(flag == cantidad) break;
     }
+}
+QRectF disparo::boundingRect() const
+{
+    return QRectF(-5,-5,10,10);
+}
+
+void disparo::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+{
+    painter->setBrush(Qt::darkYellow);
+    painter->drawEllipse(boundingRect());
+
 }

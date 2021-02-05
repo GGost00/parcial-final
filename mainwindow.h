@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <disparo.h>
+#include <QGraphicsScene>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -30,5 +31,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     disparo *bala;
+    int distancia,Hco,Hcd;
+    QGraphicsScene *scene;
 };
 #endif // MAINWINDOW_H
