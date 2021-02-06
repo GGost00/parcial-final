@@ -1,10 +1,23 @@
 #include "disparo.h"
 
 
-disparo::disparo(float distancia,float Hoo,float Hod)
+disparo::disparo(float distancia,float Hoo,float Hod, int posx_,int posy_,int V0_,int Angulo_,int _Tf)
 {
      disparoO = new canonO(distancia,Hoo);
      disparoD = new canonD(distancia,Hod);
+     posx=posx_;
+     posy=posy_;
+     V0=V0_;
+     Angulo=Angulo_;
+     Tf=_Tf;
+
+}
+
+
+void disparo::generar_disparo(int posx, int posy, int V0, int Angulo)
+{
+    esf = new esfera(5,posx,posy,V0,Angulo);
+    scene()->addItem(esf);
 }
 
 void disparo::DisparoOfensivo(int Voo, int cantidad)
@@ -39,10 +52,10 @@ void disparo::DisparoOfensivo(int Voo, int cantidad)
 
                     }else{
 //                    ImprimirResultados1(angle, V0o, x, y, t);
-//                        bala =new esfera(3,disparoO->getXo(),disparoO->getYo(),0,0);
-//                        scene()->addItem(bala);
-//                        bala->Actualizar(V0o,angle,disparoO->getYo(),t);
-
+                        Angulo=angle;
+                        V0=V0o;
+                        Tf=t;
+                        generar_disparo(posx,posy,V0,Angulo);
                     flag += 1;
                     V0o += 50;
                     break;
@@ -89,6 +102,7 @@ void disparo::DisparoDefensivo(int Voo, int cantidad)
                         }
                     }else{
 //                    ImprimirResultados1(angle, V0o, x, y, t);
+
                     flag += 1;
                     V0o += 50;
                     break;
@@ -222,6 +236,7 @@ void disparo::ContraAtaqueOf( int cantidad)
         if(flag == cantidad) break;
     }
 }
+
 QRectF disparo::boundingRect() const
 {
     return QRectF(-5,-5,10,10);
@@ -229,7 +244,9 @@ QRectF disparo::boundingRect() const
 
 void disparo::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    painter->setBrush(Qt::darkYellow);
+    painter->setBrush(Qt::yellow);
     painter->drawEllipse(boundingRect());
+    painter->setBrush(Qt::darkYellow);
+    painter->drawEllipse(boundingRect().center(),20,20);
 
 }

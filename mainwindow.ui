@@ -27,14 +27,18 @@
          </widget>
         </item>
         <item>
-         <widget class="QSpinBox" name="valoralturaco"/>
+         <widget class="QSpinBox" name="valoralturaco">
+          <property name="maximum">
+           <number>1000</number>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
       <item>
        <widget class="QSlider" name="alturaco">
         <property name="maximum">
-         <number>100</number>
+         <number>500</number>
         </property>
         <property name="orientation">
          <enum>Qt::Vertical</enum>
@@ -51,7 +55,7 @@
       <item>
        <widget class="QSlider" name="alturacd">
         <property name="maximum">
-         <number>100</number>
+         <number>500</number>
         </property>
         <property name="orientation">
          <enum>Qt::Vertical</enum>
@@ -68,7 +72,11 @@
          </widget>
         </item>
         <item>
-         <widget class="QSpinBox" name="valoralturacd"/>
+         <widget class="QSpinBox" name="valoralturacd">
+          <property name="maximum">
+           <number>1000</number>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -79,7 +87,7 @@
       <item>
        <widget class="QSlider" name="distancia">
         <property name="maximum">
-         <number>90</number>
+         <number>500</number>
         </property>
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
@@ -96,7 +104,11 @@
          </widget>
         </item>
         <item>
-         <widget class="QSpinBox" name="valordistancia"/>
+         <widget class="QSpinBox" name="valordistancia">
+          <property name="maximum">
+           <number>1000</number>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>

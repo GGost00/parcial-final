@@ -2,8 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <disparo.h>
+#include "disparo.h"
+#include "canond.h"
+#include "conono.h"
 #include <QGraphicsScene>
+#include <QTimer>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -18,6 +21,7 @@ public:
     ~MainWindow();
 
 private slots:
+
     void on_Caso1_clicked();
 
     void on_Caso2_clicked();
@@ -31,6 +35,9 @@ private slots:
 private:
     Ui::MainWindow *ui;
     disparo *bala;
+    QTimer *timer;
+    canonD *canond;
+    canonO *canono;
     int distancia,Hco,Hcd;
     QGraphicsScene *scene;
 };

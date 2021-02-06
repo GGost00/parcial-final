@@ -17,35 +17,51 @@ MainWindow::~MainWindow()
 }
 
 
+
 void MainWindow::on_Caso1_clicked()
 {
-distancia= ui->valordistancia->value();
-Hco =ui->valoralturaco->value();
-Hcd = ui->valoralturacd->value();
-bala = new disparo(distancia,Hco,Hcd);
-bala->DisparoOfensivo(1,3);
-//scene->addItem(bala);
+
+
+canond=new canonD(ui->valordistancia->value(),ui->valoralturacd->value());
+scene->addItem(canond);
+canono=new canonO(ui->valordistancia->value(),ui->valoralturaco->value());
+scene->addItem(canono);
+//scene->removeItem(canond);
+//scene->removeItem(canono);
 
 }
 
 void MainWindow::on_Caso2_clicked()
 {
+    canond=new canonD(ui->valordistancia->value(),ui->valoralturacd->value());
+    scene->addItem(canond);
+    canono=new canonO(ui->valordistancia->value(),ui->valoralturaco->value());
+    scene->addItem(canono);
 
 }
 
 void MainWindow::on_Caso3_clicked()
 {
-
+    canond=new canonD(ui->valordistancia->value(),ui->valoralturacd->value());
+    scene->addItem(canond);
+    canono=new canonO(ui->valordistancia->value(),ui->valoralturaco->value());
+    scene->addItem(canono);
 }
 
 void MainWindow::on_Caso4_clicked()
 {
-
+    canond=new canonD(ui->valordistancia->value(),ui->valoralturacd->value());
+    scene->addItem(canond);
+    canono=new canonO(ui->valordistancia->value(),ui->valoralturaco->value());
+    scene->addItem(canono);
 }
 
 void MainWindow::on_Caso5_clicked()
 {
-
+    canond=new canonD(ui->valordistancia->value(),ui->valoralturacd->value());
+    scene->addItem(canond);
+    canono=new canonO(ui->valordistancia->value(),ui->valoralturaco->value());
+    scene->addItem(canono);
 }
 
 

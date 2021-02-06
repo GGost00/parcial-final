@@ -20,12 +20,26 @@ float canonD::getD() const
     return d;
 }
 
+QRectF canonD::boundingRect() const
+{
+    return QRectF(-Xd,-Yd,5,5);
+}
+
+void canonD::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+{
+    painter->setBrush(Qt::green);
+     painter->drawEllipse(boundingRect().center(),d0+5,d0+5);
+    painter->setBrush(Qt::darkYellow);
+    painter->drawRect(boundingRect());
+
+}
+
 canonD::canonD(float distancia,float alturadf)
 {
     d=distancia;
     Hd=alturadf;
-    Xd = d;
+    Xd = -d;
     Yd = Hd;
-    d0 = 0.025*d;
+    d0 = 0.05*d;
 
 }

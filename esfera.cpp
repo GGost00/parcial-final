@@ -1,13 +1,22 @@
 #include "esfera.h"
 
-esfera::esfera(int r_, int x, int y,float vx_,float vy_)
+esfera::esfera(int r_, int x, int y,float V,int Angle)
 {
     r = r_;
     posx = x;
     posy = y;
-    vx=vx_;
-    vy=vy_;
-    setPos(posx,posy);
+    V0o=V;
+    dt=1;
+    angle=Angle;
+    timer = new QTimer();
+    connect(timer,SIGNAL(timeout()),this,SLOT(Actualizar()));
+    timer->start(10);
+
+}
+
+esfera::~esfera()
+{
+    delete timer;
 }
 int esfera::getR() const
 {
@@ -39,17 +48,16 @@ void esfera::setPosy(int value)
     posy = value;
 }
 
-void esfera::Actualizar(float V0o,float angle,int Y0,int tf)
+void esfera::Actualizar()
 {
-    int t;
+    dt+=1;
     float Vxo,Vy0;
     Vxo = V0o*cos(angle*pi/180);
     Vy0 = V0o*sin(angle*pi/180);
-    for(t = 0;t>=tf ; t++){
-        posx = Vxo*t;
-        posy = (Y0 + Vy0*t -(0.5*G*t*t));
-        setPos(posx,posy);
-    }
+    posx = posx + Vxo*dt;
+    posy = (posy + Vy0*dt -(0.5*G*dt*dt));
+
+    setPos(posx,posy);
 }
 
 QRectF esfera::boundingRect() const
