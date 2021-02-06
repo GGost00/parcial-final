@@ -2,9 +2,6 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "disparo.h"
-#include "canond.h"
-#include "conono.h"
 #include <QGraphicsScene>
 #include <QTimer>
 
@@ -34,11 +31,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    disparo *bala;
-    QTimer *timer;
-    canonD *canond;
-    canonO *canono;
-    int distancia,Hco,Hcd;
-    QGraphicsScene *scene;
+
 };
 #endif // MAINWINDOW_H

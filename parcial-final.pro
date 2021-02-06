@@ -9,22 +9,10 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    balad.cpp \
-    balao.cpp \
-    canond.cpp \
-    conono.cpp \
-    disparo.cpp \
-    esfera.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
-    balad.h \
-    balao.h \
-    canond.h \
-    conono.h \
-    disparo.h \
-    esfera.h \
     mainwindow.h
 
 FORMS += \
