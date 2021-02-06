@@ -1,5 +1,6 @@
 #ifndef CANON_H
 #define CANON_H
+
 #include <QObject>
 #include <vector>
 #include <math.h>
@@ -24,9 +25,9 @@ private: //variables
 
     std::string tipo;
 
-public: //methods
-    Canon(float x_, float y_, float imp_, std::string type);
-    Canon(float imp_, std::string type);
+public:
+    Canon(float x_, float y_, float imp_, std::string tipo);
+    Canon(float imp_, std::string tipo);
 
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr);

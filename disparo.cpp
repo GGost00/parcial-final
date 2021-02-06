@@ -39,10 +39,10 @@ QRectF Disparo::boundingRect() const {
 void Disparo::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
 
     if(tipo == "d")
-        painter->setPen(QPen(Qt::green,  2, Qt::DotLine));
+        painter->setPen(QPen(Qt::gray,  2, Qt::SolidLine));
     else if(tipo == "o")
 
-        painter->setPen(QPen(Qt::red,  2, Qt::DotLine));
+        painter->setPen(QPen(Qt::red,  2, Qt::SolidLine));
 
     painter->drawEllipse(boundingRect().center(), Radio_Impacto, Radio_Impacto);
     painter->setPen(QPen());

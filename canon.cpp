@@ -24,9 +24,10 @@ QRectF Canon::boundingRect() const {
     return QRectF(-5, -5, 10, 10);
 }
 void Canon::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+    painter->setPen(QPen(Qt::yellow,  2, Qt::SolidLine));
     painter->drawEllipse(boundingRect().center(), distancia*Radio_Impacto_Enemigo, distancia*Radio_Impacto_Enemigo);
+    painter->setPen(QPen());
     painter->setBrush(Qt::blue);
-    painter->setBrush(Qt::white);
     painter->drawRect(boundingRect());
 }
 
