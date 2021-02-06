@@ -1,4 +1,4 @@
-#include "disparo.h"
+﻿#include "disparo.h"
 Disparo::Disparo() {
     x = 0;
     y = 0;

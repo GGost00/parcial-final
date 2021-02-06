@@ -9,14 +9,14 @@ MainWindow::MainWindow(QWidget *parent)
     scene = new QGraphicsScene;
 
     ui->graphicsView->setScene(scene);
-    scene->setSceneRect(0, 0, 1900, 720);
+    scene->setSceneRect(0, 0, 600, 720);
 
     ofencivo = new Canon(0.05, "o");
     defencivo = new Canon(0.025, "d");
 
     ofencivo->setPosx(0);
     ofencivo->setPosy(0);
-    defencivo->setPosx(100);
+    defencivo->setPosx(50);
     defencivo->setPosy( 0);
 
     ofencivo->setRadio_Impacto_Enemigo(defencivo->getImpactos_Multiples());
