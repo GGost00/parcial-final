@@ -22,7 +22,7 @@
         <item>
          <widget class="QLabel" name="YC1_label">
           <property name="text">
-           <string>Y primer cañon:</string>
+           <string>Haltura Cañon Ofencivo:</string>
           </property>
          </widget>
         </item>
@@ -30,6 +30,9 @@
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
            <widget class="QSlider" name="YC1_slider">
+            <property name="minimum">
+             <number>325</number>
+            </property>
             <property name="maximum">
              <number>720</number>
             </property>
@@ -50,7 +53,7 @@
         <item>
          <widget class="QLabel" name="XC2_label">
           <property name="text">
-           <string>X segundo cañon:</string>
+           <string>Distancia entre cañones:</string>
           </property>
          </widget>
         </item>
@@ -59,10 +62,10 @@
           <item>
            <widget class="QSlider" name="XC2_slider">
             <property name="minimum">
-             <number>100</number>
+             <number>50</number>
             </property>
             <property name="maximum">
-             <number>1850</number>
+             <number>585</number>
             </property>
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -81,7 +84,7 @@
         <item>
          <widget class="QLabel" name="YC2_label">
           <property name="text">
-           <string>Y segundo cañon:</string>
+           <string>Haltura Cañon Defencivo:</string>
           </property>
          </widget>
         </item>
@@ -89,6 +92,9 @@
          <layout class="QHBoxLayout" name="horizontalLayout_3">
           <item>
            <widget class="QSlider" name="YC2_slider">
+            <property name="minimum">
+             <number>325</number>
+            </property>
             <property name="maximum">
              <number>720</number>
             </property>
