@@ -19,15 +19,6 @@ public:
 
 private slots:
 
-    void on_Caso1_clicked();
-
-    void on_Caso2_clicked();
-
-    void on_Caso5_clicked();
-
-    void on_Caso3_clicked();
-
-    void on_Caso4_clicked();
 
 private:
     Ui::MainWindow *ui;
